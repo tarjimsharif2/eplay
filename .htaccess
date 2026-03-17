@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# install.php ও setup.php সরাসরি চলবে
+RewriteRule ^install\.php$ - [L]
+RewriteRule ^setup\.php$ - [L]
+
+# বাকি সব public ফোল্ডারে যাবে
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ public/$1 [L]
